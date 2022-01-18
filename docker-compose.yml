@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports: 
+      - "8000:80"
+      - "3306:3306"
+    volumes:
+      - .:/var/www
+  postgres:
+    image: postgres:14
+    restart: always
+    environment:
+       - POSTGRES_USER=postgres
+       - POSTGRES_PASSWORD=postgres
